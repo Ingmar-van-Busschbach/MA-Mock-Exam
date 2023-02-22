@@ -12,28 +12,6 @@ public class GPSSystem : MonoBehaviour
     [SerializeField] Text debugText;
     void Start()
     {
-        debugText.text = "Checking permissions...";
-        Debug.Log("Checking permissions...");
-#if UNITY_EDITOR
-        // No permission handling needed in Editor
-#elif UNITY_ANDROID
-    if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.CoarseLocation)) {
-            UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.CoarseLocation);
-        }
-
-        // First, check if user has location service enabled
-        if (!UnityEngine.Input.location.isEnabledByUser) {
-            // TODO Failure
-            Debug.LogFormat("Android and Location not enabled");
-            yield break;
-        }
-#elif UNITY_IOS
-if (!UnityEngine.Input.location.isEnabledByUser) {
-            // TODO Failure
-            Debug.LogFormat("IOS and Location not enabled");
-            yield break;
-        }
-#endif
         debugText.text = "Starting Program...";
         Debug.Log("Starting program...");
         StartCoroutine(Initialize(accuracyInMeters, updateDistanceInMeters, timeOutTimeInSeconds));
@@ -72,6 +50,28 @@ if (!UnityEngine.Input.location.isEnabledByUser) {
     }
     IEnumerator Initialize(float accuracy = 8f, float updateDistance = 8f, int timeOutTime = 15)
     {
+        debugText.text = "Checking permissions...";
+        Debug.Log("Checking permissions...");
+#if UNITY_EDITOR
+        // No permission handling needed in Editor
+#elif UNITY_ANDROID
+    if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.CoarseLocation)) {
+            UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.CoarseLocation);
+        }
+
+        // First, check if user has location service enabled
+        if (!UnityEngine.Input.location.isEnabledByUser) {
+            // TODO Failure
+            Debug.LogFormat("Android and Location not enabled");
+            yield break;
+        }
+#elif UNITY_IOS
+if (!UnityEngine.Input.location.isEnabledByUser) {
+            // TODO Failure
+            Debug.LogFormat("IOS and Location not enabled");
+            yield break;
+        }
+#endif
         debugText.text = "Initializing...";
         Debug.Log("Initializing...");
 
