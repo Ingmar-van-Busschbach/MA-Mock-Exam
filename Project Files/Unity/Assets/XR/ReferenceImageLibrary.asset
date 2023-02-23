@@ -28,12 +28,22 @@ MonoBehaviour:
     m_Name: Aqua
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
-      m_GuidLow: 5306980981434115471
-      m_GuidHigh: 2064610486189919380
+      m_GuidLow: 5358546687661382746
+      m_GuidHigh: 2745561298464736168
     m_SerializedTextureGuid:
-      m_GuidLow: 10490093269835227403
-      m_GuidHigh: 2237056108528974714
-    m_Size: {x: 0.0571, y: 0.085650004}
+      m_GuidLow: 15281884179102597830
+      m_GuidHigh: 396706318725560296
+    m_Size: {x: 0.12, y: 0.16}
     m_SpecifySize: 1
-    m_Name: English_pattern_king_of_hearts.svg
+    m_Name: Boom
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4812903276899720719
+      m_GuidHigh: 8577676586751410572
+    m_SerializedTextureGuid:
+      m_GuidLow: 370594872506830971
+      m_GuidHigh: 11726633129712695147
+    m_Size: {x: 0.06, y: 0.08}
+    m_SpecifySize: 1
+    m_Name: Wolf
     m_Texture: {fileID: 0}
