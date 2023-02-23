@@ -5,12 +5,12 @@ namespace Generic
 {
     public class Coordinates
     {
-        public double latitude;
-        public double longitude;
+        public double latitude = -1;
+        public double longitude = -1;
         public double altitude;
-        
-        public Coordinates(){}
-        
+
+        public Coordinates() { }
+
         public Coordinates(float latitude, float longitude, float altitude)
         {
             this.latitude = latitude;
@@ -18,6 +18,14 @@ namespace Generic
             this.altitude = altitude;
         }
 
+        public bool IsValid()
+        {
+            if (this.latitude == -1 || this.longitude == -1)
+            {
+                return false;
+            }
+            return true;
+        }
         public double DistanceTo(Coordinates coordinates)
         {
             return DistanceTo(coordinates.latitude, coordinates.longitude);
