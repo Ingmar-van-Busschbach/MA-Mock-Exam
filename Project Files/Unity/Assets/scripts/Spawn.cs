@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -15,6 +16,8 @@ public class Spawn : MonoBehaviour
     private ARPlaneManager aRPlaneManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
+    private List<GameObject> instantiatedAnimals = new List<GameObject>();
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -26,7 +29,7 @@ public class Spawn : MonoBehaviour
    /// <summary>
    /// This function is called when the object becomes enabled and active.
    /// </summary>
-   private void OnEnable()
+   /*private void OnEnable()
    {
         EnhancedTouch.TouchSimulation.Enable();
         EnhancedTouch.EnhancedTouchSupport.Enable();
@@ -42,18 +45,21 @@ public class Spawn : MonoBehaviour
         EnhancedTouch.EnhancedTouchSupport.Disable();
         EnhancedTouch.Touch.onFingerDown -= FingerDown;
    }
+   */
 
-   private void FingerDown(EnhancedTouch.Finger finger)
+   private void SpawnPrefab()
    {
         //if (finger.index != 0) return;
 
         //get coordinates of where the user touched on the screen
-        if (aRRaycastManager.Raycast(finger.currentTouch.screenPosition, hits, TrackableType.PlaneWithinPolygon))
+        if (aRRaycastManager.Raycast(Camera.main.transform.forward, hits, TrackableType.PlaneWithinPolygon))
         {
+          
             foreach (ARRaycastHit hit in hits)
             {
                Pose pose = hit.pose;
                GameObject obj = Instantiate(prefab, pose.position, pose.rotation);
+               instantiatedAnimals.Add(prefab);
 
                if (aRPlaneManager.GetPlane(hit.trackableId).alignment == PlaneAlignment.HorizontalUp)
                {
@@ -69,6 +75,16 @@ public class Spawn : MonoBehaviour
                }
             }
         }
+        return;
+   }
+
+   private void DestroyPrefab()
+   {
+     
+          foreach (GameObject instantiatedAnimals in instantiatedAnimals)
+          {
+               Destroy(gameObject);
+          }
    }
 
 
