@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\GPSDebug.cs" />
     <Compile Include="Assets\Scripts\Generic\Coordinates.cs" />
     <Compile Include="Assets\Scripts\Route\RouteButton.cs" />
+    <Compile Include="Assets\Scripts\Route\SaveRoute.cs" />
     <Compile Include="Assets\Scripts\GPSARActivator.cs" />
     <Compile Include="Assets\Scripts\ARDebugger.cs" />
     <Compile Include="Assets\Scripts\Route\RouteCreator.cs" />
@@ -67,7 +68,8 @@
     <Compile Include="Assets\Scripts\Toolbox\Utilities\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\GPSService.cs" />
     <Compile Include="Assets\Scripts\Route\Route.cs" />
-    <Compile Include="Assets\Scripts\Route\SaveRoute.cs" />
+    <Compile Include="Assets\Scripts\PhoneDirection.cs" />
+    <Compile Include="Assets\Scripts\CompassRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
