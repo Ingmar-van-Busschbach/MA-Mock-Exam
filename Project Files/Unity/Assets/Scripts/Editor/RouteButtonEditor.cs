@@ -14,17 +14,17 @@ namespace Route
         {
             routeButton = (RouteButton)target;
 
-            if (GUILayout.Button("Save Route Data"))
-            {
-                string path = EditorUtility.SaveFilePanel("Save new", Application.dataPath, "RouteData", "json");
-                routeButton.SaveRoute(path);
-            }
-            if (GUILayout.Button("Load Route Data"))
-            {
-                string path = EditorUtility.OpenFilePanel("Load new ", Application.dataPath, "json");
-                if (string.IsNullOrEmpty(path)) { return; }
-                routeButton.LoadRoute(path);
-            }
+            //if (GUILayout.Button("Save Route Data"))
+            //{
+            //    string path = EditorUtility.SaveFilePanel("Save new", Application.dataPath, "RouteData", "json");
+            //    routeButton.SaveRoute(path);
+            //}
+            //if (GUILayout.Button("Load Route Data"))
+            //{
+            //    string path = EditorUtility.OpenFilePanel("Load new ", Application.dataPath, "json");
+            //    if (string.IsNullOrEmpty(path)) { return; }
+            //    routeButton.LoadRoute(path);
+            //}
 
             DrawDefaultInspector();
         }
