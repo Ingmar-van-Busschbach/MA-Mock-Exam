@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Route
 {
+    [Serializable]
     public class Route
     {
-        public string routeName = "";
         public List<Coordinates> routePoints = new List<Coordinates>();
     }
 }

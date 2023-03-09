@@ -3,19 +3,22 @@ using UnityEngine;
 
 namespace Generic
 {
+    [Serializable]
     public class Coordinates
     {
         public double latitude = -1;
         public double longitude = -1;
         public double altitude;
+        public int importance;
 
         public Coordinates() { }
 
-        public Coordinates(float latitude, float longitude, float altitude)
+        public Coordinates(float latitude, float longitude, float altitude, int importance = 0)
         {
             this.latitude = latitude;
             this.longitude = longitude;
             this.altitude = altitude;
+            this.importance = importance;
         }
 
         public bool IsValid()
@@ -25,6 +28,11 @@ namespace Generic
                 return false;
             }
             return true;
+        }
+        
+        public bool IsImportant()
+        {
+            return importance >= 0;
         }
         public double DistanceTo(Coordinates coordinates)
         {
