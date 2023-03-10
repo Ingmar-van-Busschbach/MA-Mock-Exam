@@ -46,6 +46,7 @@
      <Compile Include="Assets\GPSSystem.cs" />
      <Compile Include="Assets\scripts\CompassRenderer.cs" />
      <Compile Include="Assets\scripts\Toolbox\Utilities\MonoSingleton.cs" />
+     <Compile Include="Assets\scripts\Spawn.cs" />
      <Compile Include="Assets\scripts\Route\SaveCoordinate.cs" />
      <Compile Include="Assets\scripts\Generic\Coordinates.cs" />
      <Compile Include="Assets\scripts\Route\SaveRoute.cs" />
@@ -54,7 +55,6 @@
      <Compile Include="Assets\scripts\PhoneDirection.cs" />
      <Compile Include="Assets\scripts\GPSService.cs" />
      <Compile Include="Assets\scripts\Route\Route.cs" />
-     <Compile Include="Assets\scripts\spawn.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

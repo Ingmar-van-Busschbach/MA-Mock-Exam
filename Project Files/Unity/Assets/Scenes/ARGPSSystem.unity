@@ -2206,7 +2206,7 @@ GameObject:
   - component: {fileID: 1043126514}
   m_Layer: 0
   m_Name: AR Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5061,10 +5061,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2047335278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94fb89101f79b8549a56cf6eb8b52e66, type: 3}
+  m_Script: {fileID: 11500000, guid: dc5f28ed5a0886a4fa3acf55aa1abb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6135560850664927999, guid: 0a3b049e856351447b586682d4e108ce, type: 3}
+  prefabs:
+  - {fileID: 6135560850664927999, guid: 0a3b049e856351447b586682d4e108ce, type: 3}
 --- !u!114 &2047335280
 MonoBehaviour:
   m_ObjectHideFlags: 0
