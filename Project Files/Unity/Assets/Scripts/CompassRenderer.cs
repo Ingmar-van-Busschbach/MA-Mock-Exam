@@ -30,7 +30,7 @@ namespace Renderers
             pointsContainer.Add(newRotation);
             if (pointsContainer.Count > accuracy) { pointsContainer.RemoveAt(0); }
             float averageRotation = pointsContainer.Sum() / pointsContainer.Count;
-            pointerTransform.rotation = Quaternion.Euler(new Vector3(0, 0, averageRotation)); ;
+            pointerTransform.rotation = Quaternion.Euler(new Vector3(0, 0, averageRotation));
         }
     }
 }

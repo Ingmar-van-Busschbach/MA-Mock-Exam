@@ -20,12 +20,12 @@ public class GPSDebug : MonoBehaviour
     {
         if (!GPSService.Instance.GpsServiceEnabled) return;
 
-        latitudeText.text = "latitude: " + Input.location.lastData.latitude + "N";
-        longitudeText.text = "longitude: " + Input.location.lastData.longitude + "W";
-        altitudeText.text = "altitude: " + Input.location.lastData.altitude + "m";
+        latitudeText.text = Input.location.lastData.latitude + "N";
+        longitudeText.text = Input.location.lastData.longitude + "W";
+        altitudeText.text = Input.location.lastData.altitude + "m";
 
-        horizontalAccuracyText.text = "horizontal accuracy: " + Input.location.lastData.horizontalAccuracy + "m";
-        timestampText.text = "timestamp: " + UnixTimeStampToDateTime(Input.location.lastData.timestamp);
+        horizontalAccuracyText.text = Input.location.lastData.horizontalAccuracy + "m accurate";
+        timestampText.text = "time: " + UnixTimeStampToDateTime(Input.location.lastData.timestamp);
 
         currentIndexText.text = saveRoute.currentCoordinateIndex.ToString();
         maxIndexText.text = saveRoute.trackedCoordinates.ToString();
