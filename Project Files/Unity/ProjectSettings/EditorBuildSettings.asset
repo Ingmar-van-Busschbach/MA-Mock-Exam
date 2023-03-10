@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/OldSystem.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ARGPSSystem.unity
     guid: 267b8b314287184409a750e442308d74
+  - enabled: 1
+    path: Assets/Scenes/reverted.unity
+    guid: 99c223653dab33743946b8bb2f7e6d54
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
