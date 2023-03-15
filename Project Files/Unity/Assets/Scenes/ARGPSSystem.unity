@@ -2604,6 +2604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationTolerance: 1
   saveRoute: {fileID: 1532819478}
+  lastCompassRotation: 0
   onCompassChange:
     m_PersistentCalls:
       m_Calls: []
@@ -5065,7 +5066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 6135560850664927999, guid: 0a3b049e856351447b586682d4e108ce, type: 3}
+  - {fileID: 6787451350908532632, guid: fff0e2122254d5645b8caa87ae230ad9, type: 3}
 --- !u!114 &2047335280
 MonoBehaviour:
   m_ObjectHideFlags: 0
