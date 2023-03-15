@@ -12,7 +12,7 @@ public class PhoneDirection : MonoSingleton<PhoneDirection>
     private Vector2 currentPos;
     private Vector2 nextPos;
 
-    private float lastCompassRotation = 0;
+    public float lastCompassRotation = 0;
 
     public UnityEvent<float> onCompassChange = new UnityEvent<float>();
 

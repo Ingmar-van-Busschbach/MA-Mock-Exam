@@ -9,9 +9,6 @@ using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 public class Spawn : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabs;
-    //[SerializeField] private GameObject prefab;
-
-
 
     private ARRaycastManager aRRaycastManager;
     private ARPlaneManager aRPlaneManager;
@@ -25,6 +22,28 @@ public class Spawn : MonoBehaviour
         aRRaycastManager = GetComponent<ARRaycastManager>();
         aRPlaneManager = GetComponent<ARPlaneManager>();
     }
+
+    
+   /// <summary>
+   /// This function is called when the object becomes enabled and active.
+   /// </summary>
+   /*private void OnEnable()
+   {
+        EnhancedTouch.TouchSimulation.Enable();
+        EnhancedTouch.EnhancedTouchSupport.Enable();
+        EnhancedTouch.Touch.onFingerDown += FingerDown;
+   }
+
+   /// <summary>
+   /// This function is called when the behaviour becomes disabled or inactive.
+   /// </summary>
+   private void OnDisable()
+   {
+        EnhancedTouch.TouchSimulation.Disable();
+        EnhancedTouch.EnhancedTouchSupport.Disable();
+        EnhancedTouch.Touch.onFingerDown -= FingerDown;
+   }
+   */
 
     public void SpawnPrefab()
     {
@@ -43,14 +62,7 @@ public class Spawn : MonoBehaviour
               
               if (aRPlaneManager.GetPlane(hit.trackableId).alignment == PlaneAlignment.HorizontalUp)
               {
-                   Vector3 position = obj.transform.position;
-                   
-                   Vector3 cameraPosition = Camera.main.transform.position;
-                   
-                   Vector3 direction = cameraPosition - position;
-                   Vector3 targetRotationEuler = Quaternion.LookRotation(direction).eulerAngles;
-                   Vector3 scaledEuler = Vector3.Scale(targetRotationEuler, obj.transform.up.normalized);
-                   Quaternion targetRotation = Quaternion.Euler(scaledEuler);
+                   Quaternion targetRotation = Quaternion.Euler(0, PhoneDirection.Instance.lastCompassRotation+180, 0);
                    obj.transform.rotation = obj.transform.rotation * targetRotation;
               }
          }
@@ -60,7 +72,7 @@ public class Spawn : MonoBehaviour
     {
         //if (finger.index != 0) return;
 
-        //get coordinates of where the raycast hit
+        //get coordinates of where the user touched on the screen
         if (!aRRaycastManager.Raycast(Camera.main.transform.forward, hits, TrackableType.PlaneWithinPolygon))
         {
             return;
@@ -85,14 +97,12 @@ public class Spawn : MonoBehaviour
             }
         }
     }
-    
 
     public void DestroyPrefab()
    {
      
           foreach (GameObject instantiatedObject in instantiatedObjects)
           {
-               Debug.Log("deleted");
                Destroy(instantiatedObject);
           }
    }
