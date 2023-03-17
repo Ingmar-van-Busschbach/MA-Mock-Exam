@@ -5148,8 +5148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5f28ed5a0886a4fa3acf55aa1abb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
+  footstepPrefabs:
   - {fileID: 6787451350908532632, guid: fff0e2122254d5645b8caa87ae230ad9, type: 3}
+  modelPrefabs:
+  - {fileID: 3245435860356626330, guid: 27599cc9c7e8d5945a6f90a96d75c119, type: 3}
 --- !u!114 &2047335280
 MonoBehaviour:
   m_ObjectHideFlags: 0

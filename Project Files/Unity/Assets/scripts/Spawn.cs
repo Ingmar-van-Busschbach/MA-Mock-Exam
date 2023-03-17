@@ -8,11 +8,13 @@ using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 [RequireComponent (typeof(ARRaycastManager), typeof(ARPlaneManager))]
 public class Spawn : MonoBehaviour
 {
-    [SerializeField] private GameObject[] prefabs;
+    [SerializeField] private GameObject[] footstepPrefabs;
+    [SerializeField] private GameObject[] modelPrefabs;
 
     private ARRaycastManager aRRaycastManager;
     private ARPlaneManager aRPlaneManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    private int index = 0;
 
     private List<GameObject> instantiatedObjects = new List<GameObject>();
 
@@ -57,7 +59,7 @@ public class Spawn : MonoBehaviour
          foreach (ARRaycastHit hit in hits)
          {
               Pose pose = hit.pose;
-              GameObject obj = Instantiate(prefabs[0], pose.position, pose.rotation);
+              GameObject obj = Instantiate(footstepPrefabs[index], pose.position, pose.rotation);
              instantiatedObjects.Add(obj);
               
               if (aRPlaneManager.GetPlane(hit.trackableId).alignment == PlaneAlignment.HorizontalUp)
@@ -80,7 +82,7 @@ public class Spawn : MonoBehaviour
         foreach (ARRaycastHit hit in hits)
         {
             Pose pose = hit.pose;
-            GameObject obj = Instantiate(prefabs[1], pose.position, pose.rotation);
+            GameObject obj = Instantiate(modelPrefabs[index], pose.position, pose.rotation);
             instantiatedObjects.Add(obj);
 
             if (aRPlaneManager.GetPlane(hit.trackableId).alignment == PlaneAlignment.HorizontalUp)
@@ -94,6 +96,11 @@ public class Spawn : MonoBehaviour
                 Vector3 scaledEuler = Vector3.Scale(targetRotationEuler, obj.transform.up.normalized);
                 Quaternion targetRotation = Quaternion.Euler(scaledEuler);
                 obj.transform.rotation = obj.transform.rotation * targetRotation;
+            }
+            index++;
+            if(index == modelPrefabs.Length)
+            {
+                index = 0;
             }
         }
     }
